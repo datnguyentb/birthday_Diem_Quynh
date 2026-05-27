@@ -7,7 +7,7 @@
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover"
         />
         <meta name="theme-color" content="#1b3a5c" />
-        <title>Đại Lễ Sinh Nhật – Nông Thị Diễm Quỳnh</title>
+        <title>Đại Lễ Sinh Nhật – Nông Thị Diễm Quỳnh | Sắc Sapphire</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
             rel="stylesheet"
@@ -740,14 +740,95 @@
             </div>
         </div>
         <script>
-            // Hàm xử lý bật nhạc khi người dùng tương tác  function playMusic() {    const music = document.getElementById('bg-music');    if (music && music.paused) {      music.play().catch(err => console.log("Trình duyệt chặn phát tự động: ", err));    }  }
+            // Hàm xử lý bật nhạc khi người dùng tương tác  
+            function playMusic() {  
+                const music = document.getElementById('bg-music');  
+                if (music && music.paused) {  
+                    music.play().catch(err => console.log("Trình duyệt chặn phát tự động: ", err));  
+                }  
+            }
 
-            function openEnvelope() {    const env = document.getElementById('env');    const hintEl = document.getElementById('hint');    if (!env.classList.contains('open')) {      env.classList.add('open');      if (hintEl) hintEl.style.opacity = '0.4';      spawnParticles('🎂', '🥂', '💸', '✨', '👑', '🥳');      playMusic(); // Bật nhạc khi phong bì mở    }  }
-            function goTab2() {    const tab1 = document.getElementById('tab1');    const tab2 = document.getElementById('tab2');    if (tab1 && tab2) {      tab1.style.display = 'none';      tab2.style.display = 'flex';      startCountdown();      spawnParticles('🎁', '🥂', '🔥', '🎈', '✨', '💙');      playMusic(); // Đảm bảo nhạc vẫn chạy khi chuyển tab    }  }
-            function goTab1() {    const tab1 = document.getElementById('tab1');    const tab2 = document.getElementById('tab2');    if (tab1 && tab2) {      tab2.style.display = 'none';      tab1.style.display = 'flex';      spawnParticles('💙', '🎉', '🌟', '✨');    }  }
-            function spawnParticles(...emojiSet) {    const container = document.getElementById('particles');    if (!container) return;    const items = (emojiSet.length ? emojiSet : ['🎂', '🥂', '✨', '🎉', '🌟', '💸']);    const particleCount = Math.min(24, Math.floor(window.innerWidth / 20));    for (let i = 0; i < particleCount; i++) {      setTimeout(() => {        const p = document.createElement('div');        p.className = 'particle';        p.textContent = items[Math.floor(Math.random() * items.length)];        p.style.left = (5 + Math.random() * 90) + '%';        p.style.top = (20 + Math.random() * 55) + '%';        p.style.animationDuration = (1.6 + Math.random() * 1.4) + 's';        p.style.fontSize = (14 + Math.random() * 18) + 'px';        container.appendChild(p);        setTimeout(() => p.remove(), 2800);      }, i * 70);    }  }
-            let cdInterval = null;  function startCountdown() {    if (cdInterval) clearInterval(cdInterval);    const targetDate = new Date('2026-12-03T18:00:00+07:00');    function updateCounter() {      const now = new Date();      const diff = targetDate - now;      if (diff <= 0) {        document.getElementById('cd-d').textContent = '0';        document.getElementById('cd-h').textContent = '0';        document.getElementById('cd-m').textContent = '0';        document.getElementById('cd-s').textContent = '0';        if (cdInterval) clearInterval(cdInterval);        return;      }      document.getElementById('cd-d').textContent = Math.floor(diff / 86400000);      document.getElementById('cd-h').textContent = Math.floor((diff % 86400000) / 3600000);      document.getElementById('cd-m').textContent = Math.floor((diff % 3600000) / 60000);      document.getElementById('cd-s').textContent = Math.floor((diff % 60000) / 1000);    }    updateCounter();    cdInterval = setInterval(updateCounter, 1000);  }
-            window.addEventListener('load', () => {    document.getElementById('tab1').style.display = 'flex';    document.getElementById('tab2').style.display = 'none';  });
+            function openEnvelope() {  
+                const env = document.getElementById('env');  
+                const hintEl = document.getElementById('hint');  
+                if (!env.classList.contains('open')) {  
+                    env.classList.add('open');  
+                    if (hintEl) hintEl.style.opacity = '0.4';  
+                    spawnParticles('🎂', '🥂', '💸', '✨', '👑', '🥳');  
+                    playMusic(); // Bật nhạc khi phong bì mở  
+                }  
+            }
+            
+            function goTab2() {  
+                const tab1 = document.getElementById('tab1');  
+                const tab2 = document.getElementById('tab2');  
+                if (tab1 && tab2) {  
+                    tab1.style.display = 'none';  
+                    tab2.style.display = 'flex';  
+                    startCountdown();  
+                    spawnParticles('🎁', '🥂', '🔥', '🎈', '✨', '💙');  
+                    playMusic(); // Đảm bảo nhạc vẫn chạy khi chuyển tab  
+                }  
+            }
+            
+            function goTab1() {  
+                const tab1 = document.getElementById('tab1');  
+                const tab2 = document.getElementById('tab2');  
+                if (tab1 && tab2) {  
+                    tab2.style.display = 'none';  
+                    tab1.style.display = 'flex';  
+                    spawnParticles('💙', '🎉', '🌟', '✨');  
+                }  
+            }
+            
+            function spawnParticles(...emojiSet) {  
+                const container = document.getElementById('particles');  
+                if (!container) return;  
+                const items = (emojiSet.length ? emojiSet : ['🎂', '🥂', '✨', '🎉', '🌟', '💸']);  
+                const particleCount = Math.min(24, Math.floor(window.innerWidth / 20));  
+                for (let i = 0; i < particleCount; i++) {  
+                    setTimeout(() => {  
+                        const p = document.createElement('div');  
+                        p.className = 'particle';  
+                        p.textContent = items[Math.floor(Math.random() * items.length)];  
+                        p.style.left = (5 + Math.random() * 90) + '%';  
+                        p.style.top = (20 + Math.random() * 55) + '%';  
+                        p.style.animationDuration = (1.6 + Math.random() * 1.4) + 's';  
+                        p.style.fontSize = (14 + Math.random() * 18) + 'px';  
+                        container.appendChild(p);  
+                        setTimeout(() => p.remove(), 2800);  
+                    }, i * 70);  
+                }  
+            }
+            
+            let cdInterval = null;  
+            function startCountdown() {  
+                if (cdInterval) clearInterval(cdInterval);  
+                const targetDate = new Date('2026-12-03T18:00:00+07:00');  
+                function updateCounter() {  
+                    const now = new Date();  
+                    const diff = targetDate - now;  
+                    if (diff <= 0) {  
+                        document.getElementById('cd-d').textContent = '0';  
+                        document.getElementById('cd-h').textContent = '0';  
+                        document.getElementById('cd-m').textContent = '0';  
+                        document.getElementById('cd-s').textContent = '0';  
+                        if (cdInterval) clearInterval(cdInterval);  
+                        return;  
+                    }  
+                    document.getElementById('cd-d').textContent = Math.floor(diff / 86400000);  
+                    document.getElementById('cd-h').textContent = Math.floor((diff % 86400000) / 3600000);  
+                    document.getElementById('cd-m').textContent = Math.floor((diff % 3600000) / 60000);  
+                    document.getElementById('cd-s').textContent = Math.floor((diff % 60000) / 1000);  
+                }  
+                updateCounter();  
+                cdInterval = setInterval(updateCounter, 1000);  
+            }
+            
+            window.addEventListener('load', () => {  
+                document.getElementById('tab1').style.display = 'flex';  
+                document.getElementById('tab2').style.display = 'none';  
+            });
         </script>
     </body>
 </html>
