@@ -2,16 +2,10 @@
 <html lang="vi">
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover"
-        />
-        <meta name="theme-color" content="#1b3a5c" />
-        <title>Đại Lễ Sinh Nhật – Nông Thị Diễm Quỳnh | Sắc Sapphire</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
-            rel="stylesheet"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="theme-color" content="#0a0a12" />
+        <title>VIP PASS – Nông Thị Diễm Quỳnh | Neon Birthday Night</title>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Montserrat:ital,wght@0,400;0,600;1,400&family=Satisfy&display=swap" rel="stylesheet" />
         <style>
             * {
                 margin: 0;
@@ -20,8 +14,9 @@
                 -webkit-tap-highlight-color: transparent;
             }
             body {
-                background: #eef4fb;
-                font-family: 'Cormorant Garamond', serif;
+                background: #0a0a12;
+                color: #fff;
+                font-family: 'Montserrat', sans-serif;
                 min-height: 100vh;
                 display: flex;
                 align-items: center;
@@ -31,22 +26,16 @@
                 overflow-x: hidden;
                 width: 100%;
             }
+            /* Hiệu ứng lưới Grid nền Cyberpunk */
             body::before {
                 content: '';
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: radial-gradient(circle at 10% 20%, rgba(46, 109, 164, 0.06) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 75%, rgba(232, 201, 122, 0.08) 0%, transparent 50%),
-                    repeating-linear-gradient(
-                        45deg,
-                        rgba(27, 58, 92, 0.02) 0px,
-                        rgba(27, 58, 92, 0.02) 2px,
-                        transparent 2px,
-                        transparent 8px
-                    );
+                inset: 0;
+                background: 
+                    linear-gradient(rgba(18, 18, 32, 0.8), rgba(10, 10, 18, 0.95)),
+                    linear-gradient(90deg, rgba(255, 0, 128, 0.04) 1px, transparent 1px),
+                    linear-gradient(rgba(0, 255, 242, 0.04) 1px, transparent 1px);
+                background-size: 100% 100%, 30px 30px, 30px 30px;
                 pointer-events: none;
                 z-index: 0;
             }
@@ -58,517 +47,299 @@
             }
             .particle {
                 position: absolute;
-                font-size: 20px;
-                animation: floatUp 2.3s ease-out forwards;
-                opacity: 0;
+                animation: floatNeon 2s linear forwards;
+                text-shadow: 0 0 8px currentColor;
             }
-            @keyframes floatUp {
-                0% {
-                    opacity: 0.9;
-                    transform: translateY(0) rotate(0deg) scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: translateY(-220px) rotate(25deg) scale(0.4);
-                }
+            @keyframes floatNeon {
+                0% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+                100% { opacity: 0; transform: translateY(-150px) scale(0.6); filter: blur(2px); }
             }
             .page {
                 width: 100%;
-                max-width: 600px;
+                max-width: 500px;
                 margin: 0 auto;
                 position: relative;
                 z-index: 2;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: calc(100vh - 2rem);
             }
-            #tab1,
-            #tab2 {
+            #tab1, #tab2 {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
             }
-            #tab2 {
-                display: none;
-            }
-            .greeting {
-                font-family: 'Dancing Script', cursive;
-                font-size: 2rem;
-                color: #1b3a5c;
-                margin-bottom: 1.5rem;
+            #tab2 { display: none; }
+
+            .cyber-title {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 1.6rem;
+                font-weight: 900;
+                color: #00fff2;
+                text-shadow: 0 0 10px rgba(0, 255, 242, 0.6);
+                margin-bottom: 2rem;
                 text-align: center;
-                font-weight: 600;
-                animation: fadeDown 0.7s ease both;
-            }
-            @keyframes fadeDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-18px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            @keyframes fadeUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            .envelope-container {
-                position: relative;
-                width: 340px;
-                max-width: 100%;
-                cursor: pointer;
-                animation: fadeUp 0.8s ease 0.1s both;
-                margin: 0 auto;
-            }
-            .env-svg {
-                width: 100%;
-                height: auto;
-                display: block;
-                filter: drop-shadow(0 12px 18px rgba(27, 58, 92, 0.12));
-            }
-            .flap {
-                transform-origin: 0 0;
-                transform-box: fill-box;
-                transition: transform 0.65s cubic-bezier(0.23, 1, 0.32, 1);
-            }
-            .envelope-container.open .flap {
-                transform: rotateX(180deg);
-            }
-            .wax {
-                transition: opacity 0.3s 0.1s;
-            }
-            .envelope-container.open .wax {
-                opacity: 0;
-            }
-            .card-preview {
-                width: 90%;
-                max-width: 300px;
-                background: #ffffff;
-                border: 1px solid #dceaf5;
-                border-radius: 12px;
-                padding: 22px 20px 20px;
-                text-align: center;
-                margin: 0 auto;
-                position: relative;
-                top: -8px;
-                opacity: 0;
-                transform: translateY(28px);
-                transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
-                max-height: 0;
-                overflow: hidden;
-                pointer-events: none;
-                box-shadow: 0 10px 20px rgba(27, 58, 92, 0.08);
-            }
-            .envelope-container.open .card-preview {
-                opacity: 1;
-                transform: translateY(-32px);
-                max-height: 520px;
-                pointer-events: all;
-            }
-            .ornament-line {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                justify-content: center;
-                margin: 8px 0;
-            }
-            .ornament-line::before,
-            .ornament-line::after {
-                content: '';
-                flex: 1;
-                height: 1px;
-                background: linear-gradient(90deg, transparent, #e8c97a, transparent);
-            }
-            .ornament-dot {
-                color: #e8c97a;
-                font-size: 12px;
-            }
-            .preview-label {
-                font-size: 10px;
-                letter-spacing: 2.5px;
-                color: #2e6da4;
+                letter-spacing: 2px;
                 text-transform: uppercase;
-                font-weight: 500;
             }
-            .preview-name {
-                font-family: 'Dancing Script', cursive;
-                font-size: 2rem;
-                color: #1b3a5c;
-                line-height: 1.2;
-                margin: 6px 0 4px;
-            }
-            .preview-school {
-                font-style: italic;
-                font-size: 13px;
-                color: #5f7f9e;
-            }
-            .preview-date {
-                display: inline-block;
-                background: #2e6da4;
-                color: #fff;
-                font-size: 13px;
-                letter-spacing: 1.5px;
-                padding: 5px 20px;
-                border-radius: 30px;
-                margin: 12px 0 8px;
-                font-family: 'Playfair Display', serif;
-                font-weight: 500;
-            }
-            .open-btn {
-                display: inline-block;
-                margin-top: 8px;
-                background: transparent;
-                color: #1b3a5c;
-                border: 1.5px solid #2e6da4;
-                border-radius: 40px;
-                padding: 8px 24px;
-                font-size: 13px;
-                font-family: 'Cormorant Garamond', serif;
-                font-weight: 600;
-                letter-spacing: 1px;
-                cursor: pointer;
-                transition: all 0.25s;
-                min-height: 44px;
-            }
-            .open-btn:active {
-                transform: scale(0.97);
-            }
-            .open-btn:hover {
-                background: #2e6da4;
-                color: white;
-                border-color: #2e6da4;
-            }
-            .hint {
-                margin-top: 26px;
-                font-size: 13px;
-                color: #4a6f8f;
-                font-style: italic;
-                animation: pulseGlow 2.2s infinite;
-                text-align: center;
-                background: rgba(255, 255, 240, 0.4);
-                padding: 4px 14px;
-                border-radius: 80px;
-                backdrop-filter: blur(2px);
-            }
-            @keyframes pulseGlow {
-                0%,
-                100% {
-                    opacity: 0.5;
-                }
-                50% {
-                    opacity: 1;
-                    text-shadow: 0 0 3px #e8c97a80;
-                }
-            }
-            .card-main {
-                width: 100%;
-                max-width: 450px;
-                background: #ffffff;
-                border-radius: 28px;
-                padding: 28px 20px 30px;
-                text-align: center;
+
+            /* --- GIAO DIỆN KHÓA / PHONG BÌ CÔNG NGHỆ --- */
+            .scanner-container {
                 position: relative;
-                animation: fadeUp 0.55s ease both;
-                box-shadow: 0 20px 30px -12px rgba(27, 58, 92, 0.2);
-                border: 1px solid rgba(46, 109, 164, 0.25);
-                margin: 0 auto;
+                width: 300px;
+                height: 300px;
+                background: rgba(20, 20, 35, 0.6);
+                border: 2px solid #ff007f;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 0 25px rgba(255, 0, 127, 0.3), inset 0 0 15px rgba(255, 0, 127, 0.2);
+                transition: all 0.4s ease;
             }
-            .card-inner {
-                border: 1px solid #e2edf9;
-                border-radius: 20px;
-                padding: 26px 20px 22px;
-                background: #ffffff;
-            }
-            .corner-deco {
+            .scanner-container::before {
+                content: '';
                 position: absolute;
-                font-size: 22px;
-                color: #e8c97a;
+                width: 104%;
+                height: 104%;
+                border: 1px dashed #00fff2;
+                border-radius: 50%;
+                animation: rotateClockwise 20s linear infinite;
+            }
+            @keyframes rotateClockwise {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            .scan-line {
+                position: absolute;
+                left: 10%;
+                width: 80%;
+                height: 4px;
+                background: #00fff2;
+                box-shadow: 0 0 15px #00fff2, 0 0 30px #00fff2;
+                border-radius: 50%;
+                animation: scan 2.5s ease-in-out infinite;
+            }
+            @keyframes scan {
+                0%, 100% { top: 15%; }
+                50% { top: 85%; }
+            }
+            .fingerprint {
+                font-size: 4.5rem;
+                color: #ff007f;
+                filter: drop-shadow(0 0 10px #ff007f);
+                transition: all 0.3s;
+            }
+            .scanner-container:hover .fingerprint {
+                color: #00fff2;
+                filter: drop-shadow(0 0 15px #00fff2);
+            }
+            .scan-text {
+                margin-top: 15px;
+                font-family: 'Orbitron', sans-serif;
+                font-size: 0.85rem;
+                color: #fff;
+                letter-spacing: 3px;
+                text-transform: uppercase;
                 opacity: 0.8;
             }
-            .corner-deco.tl {
-                top: 16px;
-                left: 20px;
+
+            /* --- GIAO DIỆN THIỆP VIP CHI TIẾT --- */
+            .ticket-card {
+                width: 100%;
+                background: linear-gradient(135deg, #121225 0%, #070712 100%);
+                border: 2px solid #00fff2;
+                border-radius: 20px;
+                padding: 24px 18px;
+                position: relative;
+                box-shadow: 0 0 35px rgba(0, 255, 242, 0.25);
+                overflow: hidden;
             }
-            .corner-deco.tr {
-                top: 16px;
-                right: 20px;
+            /* Đường cắt vé đặc trưng rãnh vé VIP */
+            .ticket-card::before, .ticket-card::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: 24px;
+                height: 24px;
+                background: #0a0a12;
+                border: 2px solid #00fff2;
+                border-radius: 50%;
+                z-index: 5;
             }
-            .corner-deco.bl {
-                bottom: 16px;
-                left: 20px;
+            .ticket-card::before { left: -14px; transform: translateY(-50%); }
+            .ticket-card::after { right: -14px; transform: translateY(-50%); }
+
+            .ticket-header {
+                text-align: center;
+                border-bottom: 2px dashed rgba(0, 255, 242, 0.3);
+                padding-bottom: 15px;
+                margin-bottom: 20px;
             }
-            .corner-deco.br {
-                bottom: 16px;
-                right: 20px;
-            }
-            .section-title {
+            .badge {
+                display: inline-block;
+                font-family: 'Orbitron', sans-serif;
+                background: #ff007f;
+                color: #fff;
                 font-size: 11px;
-                letter-spacing: 3px;
-                color: #2e6da4;
-                text-transform: uppercase;
-                margin-bottom: 6px;
-                font-weight: 500;
+                font-weight: 700;
+                padding: 4px 16px;
+                border-radius: 4px;
+                letter-spacing: 2px;
+                box-shadow: 0 0 10px #ff007f;
             }
             .main-name {
-                font-family: 'Dancing Script', cursive;
-                font-size: 2.5rem;
-                color: #1b3a5c;
-                line-height: 1.1;
-                margin: 10px 0 4px;
-            }
-            .degree-tag {
-                display: inline-block;
-                background: #eef4fb;
-                color: #1b3a5c;
-                font-size: 11px;
-                letter-spacing: 1.5px;
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 900;
+                font-size: 1.8rem;
+                color: #fff;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+                margin: 12px 0 4px;
                 text-transform: uppercase;
-                padding: 4px 16px;
-                border-radius: 40px;
-                border: 1px solid #cbddee;
-                margin: 8px 0 16px;
-                font-weight: 500;
+                letter-spacing: 1px;
             }
-            .info-list {
-                margin: 14px 0 10px;
+            .sub-title {
+                font-family: 'Satisfy', cursive;
+                color: #ff007f;
+                font-size: 1.6rem;
+                text-shadow: 0 0 5px rgba(255, 0, 127, 0.4);
             }
-            .info-row {
+
+            .info-box {
                 display: flex;
-                align-items: flex-start;
-                gap: 14px;
-                padding: 10px 0;
-                border-bottom: 1px solid #e8f0f7;
-                text-align: left;
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 20px;
             }
-            .info-row:last-child {
-                border-bottom: none;
+            .info-item {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-left: 4px solid #00fff2;
+                border-radius: 8px;
+                padding: 12px;
             }
             .info-icon {
-                font-size: 18px;
-                flex-shrink: 0;
-                color: #2e6da4;
+                font-size: 22px;
+                filter: drop-shadow(0 0 5px currentColor);
             }
-            .info-lbl {
-                font-size: 10px;
-                color: #7b98b3;
-                letter-spacing: 1.2px;
-                text-transform: uppercase;
-                margin-bottom: 3px;
-            }
-            .info-val {
-                font-size: 15px;
-                color: #1f3448;
-                font-weight: 500;
-                word-break: break-word;
-            }
-            .cd-section {
-                margin-top: 18px;
-                background: #f6fafd;
-                border-radius: 24px;
-                padding: 12px 6px;
-            }
-            .cd-label {
-                font-size: 10px;
-                letter-spacing: 2px;
-                color: #2e6da4;
-                text-transform: uppercase;
-                margin-bottom: 8px;
-                font-weight: 600;
-            }
-            .cd-boxes {
+            .info-text {
                 display: flex;
-                gap: 10px;
+                flex-direction: column;
+            }
+            .info-label {
+                font-size: 10px;
+                color: #8888aa;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 2px;
+            }
+            .info-value {
+                font-size: 14px;
+                font-weight: 600;
+                color: #e2e2ff;
+                line-height: 1.4;
+            }
+
+            /* --- ĐẾM NGƯỢC STYLE MATRIX --- */
+            .countdown-wrap {
+                background: rgba(0, 0, 0, 0.4);
+                border: 1px solid rgba(0, 255, 242, 0.2);
+                border-radius: 12px;
+                padding: 15px 10px;
+                text-align: center;
+            }
+            .countdown-title {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 11px;
+                color: #00fff2;
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+            }
+            .countdown-grid {
+                display: flex;
+                gap: 8px;
                 justify-content: center;
             }
-            .cd-box {
+            .time-block {
                 flex: 1;
-                background: linear-gradient(145deg, #1b3a5c, #244c74);
-                color: #fff;
-                border-radius: 18px;
-                padding: 8px 4px;
-                min-width: 0;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+                background: rgba(10, 10, 20, 0.8);
+                border: 1px solid rgba(255, 0, 127, 0.3);
+                border-radius: 6px;
+                padding: 8px 2px;
             }
-            .cd-num {
-                font-family: 'Playfair Display', serif;
-                font-size: 1.7rem;
+            .time-num {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 1.5rem;
                 font-weight: 700;
-                line-height: 1;
+                color: #ff007f;
+                text-shadow: 0 0 8px #ff007f;
                 display: block;
-                letter-spacing: 1px;
             }
-            .cd-lbl {
-                font-size: 8px;
-                letter-spacing: 1.8px;
+            .time-label {
+                font-size: 9px;
                 text-transform: uppercase;
-                opacity: 0.85;
-                margin-top: 4px;
+                color: #888;
+                letter-spacing: 1px;
+                margin-top: 2px;
                 display: block;
             }
-            .quote {
+
+            .footer-quote {
                 font-style: italic;
-                font-size: 13px;
-                color: #4f6f8a;
-                margin: 18px 0 0;
-                line-height: 1.65;
-                border-top: 1px dashed #e0eef9;
-                padding-top: 14px;
+                font-size: 12px;
+                color: #a0a0c0;
+                text-align: center;
+                margin-top: 18px;
+                line-height: 1.5;
             }
-            .back-btn {
-                display: inline-block;
-                margin-top: 24px;
+
+            /* --- HỆ THỐNG NÚT BẤM CYBER --- */
+            .cyber-btn {
+                font-family: 'Orbitron', sans-serif;
                 background: transparent;
-                color: #2e6da4;
-                border: 1px solid #c0d4e8;
-                border-radius: 60px;
-                padding: 10px 28px;
-                font-size: 14px;
-                font-family: 'Cormorant Garamond', serif;
-                font-weight: 600;
-                letter-spacing: 1px;
+                color: #00fff2;
+                border: 2px solid #00fff2;
+                padding: 12px 30px;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                text-transform: uppercase;
                 cursor: pointer;
-                transition: all 0.2s;
-                min-height: 44px;
+                margin-top: 20px;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s;
+                box-shadow: 0 0 10px rgba(0, 255, 242, 0.2);
             }
-            .back-btn:active {
-                transform: scale(0.97);
+            .cyber-btn:hover {
+                background: #00fff2;
+                color: #000;
+                box-shadow: 0 0 20px #00fff2;
             }
-            .back-btn:hover {
-                border-color: #e8c97a;
-                color: #1b3a5c;
-                background: #fff8e7;
+            .cyber-btn.pink {
+                color: #ff007f;
+                border-color: #ff007f;
+                box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
             }
-            @media (max-width: 500px) {
-                body {
-                    padding: 0.75rem;
-                }
-                .greeting {
-                    font-size: 1.5rem;
-                    margin-bottom: 1rem;
-                }
-                .envelope-container {
-                    width: 280px;
-                }
-                .card-preview {
-                    width: 95%;
-                    max-width: 260px;
-                    padding: 16px 12px;
-                }
-                .preview-name {
-                    font-size: 1.5rem;
-                }
-                .preview-school {
-                    font-size: 11px;
-                }
-                .preview-date {
-                    font-size: 11px;
-                    padding: 4px 16px;
-                }
-                .open-btn {
-                    padding: 8px 18px;
-                    font-size: 12px;
-                }
+            .cyber-btn.pink:hover {
+                background: #ff007f;
+                color: #fff;
+                box-shadow: 0 0 20px #ff007f;
             }
+
+            /* --- ĐÁP ỨNG THIẾT BỊ --- */
             @media (max-width: 480px) {
-                .card-main {
-                    padding: 20px 12px;
-                }
-                .card-inner {
-                    padding: 18px 12px;
-                }
-                .main-name {
-                    font-size: 1.8rem;
-                }
-                .info-row {
-                    gap: 10px;
-                    flex-wrap: wrap;
-                }
-                .info-icon {
-                    font-size: 16px;
-                }
-                .info-val {
-                    font-size: 13px;
-                }
-                .cd-boxes {
-                    gap: 6px;
-                }
-                .cd-box {
-                    padding: 6px 2px;
-                }
-                .cd-num {
-                    font-size: 1.2rem;
-                }
-                .cd-lbl {
-                    font-size: 7px;
-                    letter-spacing: 1px;
-                }
-                .corner-deco {
-                    font-size: 16px;
-                }
-                .corner-deco.tl,
-                .corner-deco.tr {
-                    top: 12px;
-                }
-                .corner-deco.tl,
-                .corner-deco.bl {
-                    left: 12px;
-                }
-                .corner-deco.tr,
-                .corner-deco.br {
-                    right: 12px;
-                }
-                .corner-deco.bl,
-                .corner-deco.br {
-                    bottom: 12px;
-                }
-            }
-            @media (max-width: 380px) {
-                .greeting {
-                    font-size: 1.3rem;
-                }
-                .main-name {
-                    font-size: 1.5rem;
-                }
-                .info-row {
-                    flex-direction: column;
-                    gap: 4px;
-                }
-                .cd-boxes {
-                    flex-wrap: wrap;
-                }
-                .cd-box {
-                    flex: 0 0 calc(25% - 5px);
-                }
-                .cd-num {
-                    font-size: 1rem;
-                }
-                .quote {
-                    font-size: 11px;
-                }
-            }
-            .info-val,
-            .preview-school,
-            .quote,
-            .main-name {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-            }
-            button,
-            .open-btn,
-            .back-btn,
-            .envelope-container {
-                cursor: pointer;
+                .cyber-title { font-size: 1.3rem; }
+                .scanner-container { width: 260px; height: 260px; }
+                .fingerprint { font-size: 3.8rem; }
+                .main-name { font-size: 1.5rem; }
+                .sub-title { font-size: 1.3rem; }
+                .info-value { font-size: 13px; }
+                .time-num { font-size: 1.2rem; }
             }
         </style>
     </head>
@@ -578,256 +349,173 @@
 
         <div id="particles"></div>
         <div class="page">
-            <!-- TAB 1: PHONG BÌ -->
+            
+            <!-- TAB 1: MÀN HÌNH KHÓA QUÉT VÂN TAY -->
             <div id="tab1">
-                <div class="greeting">🎂 LỆNH TRIỆU TẬP KHẨN CẤP ✨</div>
-                <div class="envelope-container" id="env" onclick="openEnvelope()">
-                    <svg class="env-svg" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <filter id="shadowBlue" x="-8%" y="-8%" width="116%" height="116%">
-                                <feDropShadow
-                                    dx="0"
-                                    dy="5"
-                                    stdDeviation="7"
-                                    flood-color="#1b3a5c"
-                                    flood-opacity="0.2"
-                                />
-                            </filter>
-                            <linearGradient id="envGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#2e6da4" />
-                                <stop offset="100%" stop-color="#1b3a5c" />
-                            </linearGradient>
-                            <linearGradient id="flapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#3a7cb5" />
-                                <stop offset="100%" stop-color="#2a6291" />
-                            </linearGradient>
-                            <radialGradient id="waxSapphire" cx="35%" cy="30%">
-                                <stop offset="0%" stop-color="#f5e2b0" />
-                                <stop offset="60%" stop-color="#e8c97a" />
-                                <stop offset="100%" stop-color="#caa84a" />
-                            </radialGradient>
-                        </defs>
-                        <rect
-                            x="0"
-                            y="0"
-                            width="340"
-                            height="220"
-                            rx="8"
-                            fill="url(#envGrad)"
-                            filter="url(#shadowBlue)"
-                        />
-                        <polygon points="0,0 0,220 170,120" fill="#1f4e77" opacity="0.9" />
-                        <polygon points="340,0 340,220 170,120" fill="#1f4e77" opacity="0.9" />
-                        <polygon points="0,220 340,220 170,120" fill="#163f5e" opacity="0.95" />
-                        <polygon class="flap" points="0,0 340,0 170,108" fill="url(#flapGrad)" />
-                        <rect
-                            x="2"
-                            y="2"
-                            width="336"
-                            height="216"
-                            rx="6"
-                            fill="none"
-                            stroke="#e8c97a"
-                            stroke-width="1.2"
-                            opacity="0.6"
-                        />
-                        <g class="wax">
-                            <circle
-                                cx="170"
-                                cy="148"
-                                r="27"
-                                fill="url(#waxSapphire)"
-                                stroke="#b8913a"
-                                stroke-width="1.2"
-                            />
-                            <text x="170" y="156" text-anchor="middle" font-size="23" fill="#1b3a5c" font-weight="bold">
-                                👑
-                            </text>
-                            <circle
-                                cx="170"
-                                cy="148"
-                                r="24"
-                                fill="none"
-                                stroke="#dbb458"
-                                stroke-width="1"
-                                opacity="0.5"
-                            />
-                        </g>
-                    </svg>
-                    <div class="card-preview">
-                        <div class="preview-label">✧ CHIẾU CHỈ MỜI ĂN TIỆC ✧</div>
-                        <div class="ornament-line"><span class="ornament-dot">✦</span></div>
-                        <div class="preview-name">Nông Thị Diễm Quỳnh</div>
-                        <div class="preview-school">Đại Lễ Thượng Thọ Bước Sang Tuổi Mới</div>
-                        <div class="preview-date">03 / 12 / 2026</div>
-                        <div>
-                            <button class="open-btn" onclick="event.stopPropagation(); goTab2()">
-                                🥂 Khám Phá Mật Lệnh 🥂
-                            </button>
-                        </div>
-                    </div>
+                <div class="cyber-title">⚡ ACCESS REQUIRED ⚡</div>
+                <div class="scanner-container" onclick="unlockPass()">
+                    <div class="scan-line"></div>
+                    <div class="fingerprint">🔮</div>
+                    <div class="scan-text">TAP TO SCAN</div>
                 </div>
-                <div class="hint" id="hint">💎 Chạm vào phong bì "quý tộc" để mở 💎</div>
+                <div class="scan-text" style="margin-top: 25px; color: #ff007f; font-size: 11px;">
+                    [ HỆ THỐNG XÁC MINH ĐỒNG BỌN VIP ]
+                </div>
             </div>
-            <!-- TAB 2: THIỆP CHI TIẾT -->
+
+            <!-- TAB 2: VÉ MỜI VIP CHI TIẾT -->
             <div id="tab2">
-                <div class="greeting">🥳 PARTY ĐẾN RỒI BẠN ƠI 🥳</div>
-                <div class="card-main">
-                    <span class="corner-deco tl">✨</span> <span class="corner-deco tr">✨</span>
-                    <span class="corner-deco bl">✨</span> <span class="corner-deco br">✨</span>
-                    <div class="card-inner">
-                        <div class="section-title">THÂN MỜI TRI KỶ & ĐỒNG BỌN</div>
-                        <div class="ornament-line"><span class="ornament-dot">✦</span></div>
-                        <div class="main-name">NÔNG THỊ DIỄM QUỲNH</div>
-                        <div class="degree-tag">Chủ tịch kiêm Nhà tài trợ nụ cười</div>
-                        <div class="ornament-line"><span class="ornament-dot">✦</span></div>
-                        <div class="info-list">
-                            <div class="info-row">
-                                <span class="info-icon">🏰</span>
-                                <div>
-                                    <div class="info-lbl">Sự Kiện Trọng Đại</div>
-                                    <div class="info-val">Lễ kỷ niệm ngày thế giới kết nạp thêm một nhân tài</div>
-                                </div>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">🐷</span>
-                                <div>
-                                    <div class="info-lbl">Nhiệm Vụ Của Bạn</div>
-                                    <div class="info-val">Mang theo một cái bụng đói và một tâm hồn hướng thiện</div>
-                                </div>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">📅</span>
-                                <div>
-                                    <div class="info-lbl">Thời gian bắt đầu</div>
-                                    <div class="info-val">
-                                        Thứ Năm, ngày 03 tháng 12 năm 2026 (Từ 18:00 đến lúc say xỉn)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-icon">📍</span>
-                                <div>
-                                    <div class="info-lbl">Địa điểm tụ họp</div>
-                                    <div class="info-val">[Điền địa chỉ quán ăn/nhà riêng của bạn vào đây nhé!]</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cd-section">
-                            <div class="cd-label">ĐẾM NGƯỢC ĐẾN NGÀY VUN ĐẮP TÌNH BẠN</div>
-                            <div class="cd-boxes">
-                                <div class="cd-box">
-                                    <span class="cd-num" id="cd-d">--</span><span class="cd-lbl">Ngày</span>
-                                </div>
-                                <div class="cd-box">
-                                    <span class="cd-num" id="cd-h">--</span><span class="cd-lbl">Giờ</span>
-                                </div>
-                                <div class="cd-box">
-                                    <span class="cd-num" id="cd-m">--</span><span class="cd-lbl">Phút</span>
-                                </div>
-                                <div class="cd-box">
-                                    <span class="cd-num" id="cd-s">--</span><span class="cd-lbl">Giây</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="quote">
-                            "Sự có mặt của bạn là niềm vinh hạnh của ví tiền tôi. Vui lòng đi đầy đủ và không mang theo
-                            'phong bì rỗng' nha! 💙"
-                        </p>
+                <div class="ticket-card">
+                    <div class="ticket-header">
+                        <span class="badge">ACCESS GRANTED</span>
+                        <h1 class="main-name">NÔNG THỊ DIỄM QUỲNH</h1>
+                        <p class="sub-title">Neon Birthday Night Party</p>
                     </div>
-                    <div><button class="back-btn" onclick="goTab1()">← Quay lại làm quý tộc tiếp</button></div>
+
+                    <div class="info-box">
+                        <div class="info-item" style="border-left-color: #00fff2;">
+                            <span class="info-icon" style="color: #00fff2;">⚡</span>
+                            <div class="info-text">
+                                <span class="info-label">SỰ KIỆN TRỌNG ĐẠI</span>
+                                <span class="info-value">Lễ kỷ niệm ngày thế giới kết nạp thêm một nhân tài.</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="border-left-color: #ff007f;">
+                            <span class="info-icon" style="color: #ff007f;">🔥</span>
+                            <div class="info-text">
+                                <span class="info-label">NHIỆM VỤ CỦA BẠN</span>
+                                <span class="info-value">Mang theo một cái bụng đói và một tâm hồn hướng thiện.</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="border-left-color: #00fff2;">
+                            <span class="info-icon" style="color: #00fff2;">📅</span>
+                            <div class="info-text">
+                                <span class="info-label">THỜI GIAN BẮT ĐẦU</span>
+                                <span class="info-value">Thứ Năm, ngày 03 tháng 12 năm 2026<br>(Từ 18:00 đến lúc say xỉn)</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item" style="border-left-color: #ff007f;">
+                            <span class="info-icon" style="color: #ff007f;">📍</span>
+                            <div class="info-text">
+                                <span class="info-label">ĐỊA ĐIỂM TỤ HỌP</span>
+                                <span class="info-value">[Điền địa chỉ quán ăn hoặc địa điểm của bạn tại đây]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="countdown-wrap">
+                        <div class="countdown-title">COUNTDOWN TO SYSTEM ACTIVATION</div>
+                        <div class="countdown-grid">
+                            <div class="time-block"><span class="time-num" id="cd-d">--</span><span class="time-label">Days</span></div>
+                            <div class="time-block"><span class="time-num" id="cd-h">--</span><span class="time-label">Hours</span></div>
+                            <div class="time-block"><span class="time-num" id="cd-m">--</span><span class="time-label">Mins</span></div>
+                            <div class="time-block"><span class="time-num" id="cd-s">--</span><span class="time-label">Secs</span></div>
+                        </div>
+                    </div>
+
+                    <p class="footer-quote">
+                        "Sự có mặt của bạn là niềm vinh hạnh của ví tiền tôi. Vui lòng đi đầy đủ và không mang theo 'phong bì rỗng' nha! 💙"
+                    </p>
                 </div>
+
+                <button class="cyber-btn pink" onclick="goBackLock()">← LOCK SYSTEM</button>
             </div>
+
         </div>
+
         <script>
-            // Hàm xử lý bật nhạc khi người dùng tương tác  
-            function playMusic() {  
-                const music = document.getElementById('bg-music');  
-                if (music && music.paused) {  
-                    music.play().catch(err => console.log("Trình duyệt chặn phát tự động: ", err));  
-                }  
+            // Phát nhạc nền
+            function playMusic() {
+                const music = document.getElementById('bg-music');
+                if (music && music.paused) {
+                    music.play().catch(err => console.log("Autoplay blocked: ", err));
+                }
             }
 
-            function openEnvelope() {  
-                const env = document.getElementById('env');  
-                const hintEl = document.getElementById('hint');  
-                if (!env.classList.contains('open')) {  
-                    env.classList.add('open');  
-                    if (hintEl) hintEl.style.opacity = '0.4';  
-                    spawnParticles('🎂', '🥂', '💸', '✨', '👑', '🥳');  
-                    playMusic(); // Bật nhạc khi phong bì mở  
-                }  
+            // Kích hoạt khi nhấn Quét vân tay/hologram
+            function unlockPass() {
+                const scanner = document.querySelector('.scanner-container');
+                scanner.style.transform = 'scale(0.95)';
+                scanner.style.borderColor = '#00fff2';
+                
+                // Giả lập hiệu ứng quét dữ liệu mất 0.4s
+                setTimeout(() => {
+                    document.getElementById('tab1').style.display = 'none';
+                    document.getElementById('tab2').style.display = 'flex';
+                    startCountdown();
+                    spawnNeonParticles('#00fff2', '#ff007f', '#ffffff');
+                    playMusic();
+                }, 400);
             }
-            
-            function goTab2() {  
-                const tab1 = document.getElementById('tab1');  
-                const tab2 = document.getElementById('tab2');  
-                if (tab1 && tab2) {  
-                    tab1.style.display = 'none';  
-                    tab2.style.display = 'flex';  
-                    startCountdown();  
-                    spawnParticles('🎁', '🥂', '🔥', '🎈', '✨', '💙');  
-                    playMusic(); // Đảm bảo nhạc vẫn chạy khi chuyển tab  
-                }  
+
+            function goBackLock() {
+                document.getElementById('tab2').style.display = 'none';
+                document.getElementById('tab1').style.display = 'flex';
+                const scanner = document.querySelector('.scanner-container');
+                scanner.style.transform = 'scale(1)';
+                scanner.style.borderColor = '#ff007f';
             }
-            
-            function goTab1() {  
-                const tab1 = document.getElementById('tab1');  
-                const tab2 = document.getElementById('tab2');  
-                if (tab1 && tab2) {  
-                    tab2.style.display = 'none';  
-                    tab1.style.display = 'flex';  
-                    spawnParticles('💙', '🎉', '🌟', '✨');  
-                }  
+
+            // Hạt neon bay lên khi chuyển trang
+            function spawnNeonParticles(...colors) {
+                const container = document.getElementById('particles');
+                if (!container) return;
+                const items = ['✨', '⚡', '🎵', '🎈', '🎉', '🌟'];
+                
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        const p = document.createElement('div');
+                        p.className = 'particle';
+                        p.textContent = items[Math.floor(Math.random() * items.length)];
+                        p.style.left = (10 + Math.random() * 80) + '%';
+                        p.style.top = (30 + Math.random() * 50) + '%';
+                        p.style.color = colors[Math.floor(Math.random() * colors.length)];
+                        p.style.animationDuration = (1 + Math.random() * 1.2) + 's';
+                        p.style.fontSize = (12 + Math.random() * 16) + 'px';
+                        container.appendChild(p);
+                        setTimeout(() => p.remove(), 2000);
+                    }, i * 50);
+                }
             }
-            
-            function spawnParticles(...emojiSet) {  
-                const container = document.getElementById('particles');  
-                if (!container) return;  
-                const items = (emojiSet.length ? emojiSet : ['🎂', '🥂', '✨', '🎉', '🌟', '💸']);  
-                const particleCount = Math.min(24, Math.floor(window.innerWidth / 20));  
-                for (let i = 0; i < particleCount; i++) {  
-                    setTimeout(() => {  
-                        const p = document.createElement('div');  
-                        p.className = 'particle';  
-                        p.textContent = items[Math.floor(Math.random() * items.length)];  
-                        p.style.left = (5 + Math.random() * 90) + '%';  
-                        p.style.top = (20 + Math.random() * 55) + '%';  
-                        p.style.animationDuration = (1.6 + Math.random() * 1.4) + 's';  
-                        p.style.fontSize = (14 + Math.random() * 18) + 'px';  
-                        container.appendChild(p);  
-                        setTimeout(() => p.remove(), 2800);  
-                    }, i * 70);  
-                }  
+
+            // Đồng hồ đếm ngược
+            let cdInterval = null;
+            function startCountdown() {
+                if (cdInterval) clearInterval(cdInterval);
+                const targetDate = new Date('2026-12-03T18:00:00+07:00');
+                
+                function updateCounter() {
+                    const now = new Date();
+                    const diff = targetDate - now;
+                    if (diff <= 0) {
+                        document.getElementById('cd-d').textContent = '00';
+                        document.getElementById('cd-h').textContent = '00';
+                        document.getElementById('cd-m').textContent = '00';
+                        document.getElementById('cd-s').textContent = '00';
+                        if (cdInterval) clearInterval(cdInterval);
+                        return;
+                    }
+                    
+                    const d = Math.floor(diff / 86400000);
+                    const h = Math.floor((diff % 86400000) / 3600000);
+                    const m = Math.floor((diff % 3600000) / 60000);
+                    const s = Math.floor((diff % 60000) / 1000);
+                    
+                    document.getElementById('cd-d').textContent = d < 10 ? '0' + d : d;
+                    document.getElementById('cd-h').textContent = h < 10 ? '0' + h : h;
+                    document.getElementById('cd-m').textContent = m < 10 ? '0' + m : m;
+                    document.getElementById('cd-s').textContent = s < 10 ? '0' + s : s;
+                }
+                updateCounter();
+                cdInterval = setInterval(updateCounter, 1000);
             }
-            
-            let cdInterval = null;  
-            function startCountdown() {  
-                if (cdInterval) clearInterval(cdInterval);  
-                const targetDate = new Date('2026-12-03T18:00:00+07:00');  
-                function updateCounter() {  
-                    const now = new Date();  
-                    const diff = targetDate - now;  
-                    if (diff <= 0) {  
-                        document.getElementById('cd-d').textContent = '0';  
-                        document.getElementById('cd-h').textContent = '0';  
-                        document.getElementById('cd-m').textContent = '0';  
-                        document.getElementById('cd-s').textContent = '0';  
-                        if (cdInterval) clearInterval(cdInterval);  
-                        return;  
-                    }  
-                    document.getElementById('cd-d').textContent = Math.floor(diff / 86400000);  
-                    document.getElementById('cd-h').textContent = Math.floor((diff % 86400000) / 3600000);  
-                    document.getElementById('cd-m').textContent = Math.floor((diff % 3600000) / 60000);  
-                    document.getElementById('cd-s').textContent = Math.floor((diff % 60000) / 1000);  
-                }  
-                updateCounter();  
-                cdInterval = setInterval(updateCounter, 1000);  
-            }
-            
-            window.addEventListener('load', () => {  
-                document.getElementById('tab1').style.display = 'flex';  
-                document.getElementById('tab2').style.display = 'none';  
+
+            window.addEventListener('load', () => {
+                document.getElementById('tab1').style.display = 'flex';
+                document.getElementById('tab2').style.display = 'none';
             });
         </script>
     </body>
